@@ -25,6 +25,12 @@ public class PlayerControlsScript : MonoBehaviour
     public float jumpLimited = 1f;
     public float gravity = -9.8f;
 
+    // Basic Dodge Variables
+    private bool dodged = false;
+    public bool isDodged = false;
+    public float dodgeDistance = 12f;
+    public float dodgeTimeLimited = 0.2f;
+
     public Transform playerBody;
 
     // Ground Check
@@ -70,6 +76,91 @@ public class PlayerControlsScript : MonoBehaviour
         }
     }
 
+    public void OnDodgeForward(InputAction.CallbackContext context)
+    {
+        // When the player select (Square for PS or X button for Xbox)
+        dodged = context.action.triggered;
+        dodged = context.performed;
+
+        if (context.performed && !isDodged)
+        {
+            
+                isDodged = true;
+                Vector3 dodgeDirection = transform.forward;
+                velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
+                //GameManager.Instance.dashCurrent -= 1;
+                //GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
+                //dashSoundEffect.Play();
+            
+
+
+            StartCoroutine(Dodge());
+        }
+    }
+
+    public void OnDodgeLeft(InputAction.CallbackContext context)
+    {
+        // When the player select (Square for PS or X button for Xbox)
+        dodged = context.action.triggered;
+        dodged = context.performed;
+
+        if (context.performed && !isDodged)
+        {
+            
+                isDodged = true;
+                Vector3 dodgeDirection = -transform.right;
+                velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
+                //GameManager.Instance.dashCurrent -= 1;
+               // GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
+                //dashSoundEffect.Play();
+            
+
+            StartCoroutine(Dodge());
+        }
+    }
+
+    public void OnDodgeRight(InputAction.CallbackContext context)
+    {
+        // When the player select (Square for PS or X button for Xbox)
+        dodged = context.action.triggered;
+        dodged = context.performed;
+
+        if (context.performed && !isDodged)
+        {
+            
+                isDodged = true;
+                Vector3 dodgeDirection = transform.right;
+                velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
+                //GameManager.Instance.dashCurrent -= 1;
+                //GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
+               // dashSoundEffect.Play();
+            
+
+            StartCoroutine(Dodge());
+        }
+    }
+
+    public void OnDodgeBackward(InputAction.CallbackContext context)
+    {
+        // When the player select (Square for PS or X button for Xbox)
+        dodged = context.action.triggered;
+        dodged = context.performed;
+
+        if (context.performed && !isDodged)
+        {
+           
+                isDodged = true;
+                Vector3 dodgeDirection = -transform.forward;
+                velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
+                //GameManager.Instance.dashCurrent -= 1;
+                //GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
+                //dashSoundEffect.Play();
+            
+
+            StartCoroutine(Dodge());
+        }
+    }
+
 
     void Update()
     {
@@ -94,6 +185,23 @@ public class PlayerControlsScript : MonoBehaviour
         {
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
+        }
+    }
+
+    private IEnumerator Dodge()
+    {
+
+        yield return new WaitForSeconds(dodgeTimeLimited);
+
+        velocity = Vector3.zero;
+        isDodged = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Shark"))
+        {
+            Debug.Log("Shark has caught you");
         }
     }
 

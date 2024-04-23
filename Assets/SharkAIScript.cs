@@ -11,16 +11,16 @@ public class SharkAIScript : MonoBehaviour
     private NavMeshAgent meshAgent;
     public Transform target;
 
-    public float idleRange = 40;
-    public float chaseRange = 30;
-    public float attackRange = 2;
+    public float idleRange = 150;
+    public float chaseRange = 70;
+    public float attackRange = 10;
 
     public float sharkChangeTime;
     public float sharkChoice;
 
     //public GameObject attackCollider;
 
-    private float distance;
+    public float distance;
 
     // Pathfinding
     public Transform pointOne;
@@ -39,6 +39,7 @@ public class SharkAIScript : MonoBehaviour
 
     void Start()
     {
+        currentState = "IdleState";
         meshAgent = GetComponent<NavMeshAgent>();
 
         SetOne = true;
@@ -61,7 +62,7 @@ public class SharkAIScript : MonoBehaviour
         {
             // If AI is in Idle State
             currentState = "IdleState";
-            meshAgent.speed = 24f;
+            meshAgent.speed = 3f;
 
             if (sharkChoice == 1)
             {
@@ -144,7 +145,7 @@ public class SharkAIScript : MonoBehaviour
             // If AI is in Chasing State
             currentState = "ChaseState";
             meshAgent.SetDestination(target.position);
-            meshAgent.speed = 24f;
+            meshAgent.speed = 5f;
             //attackCollider.SetActive(false);
 
         }

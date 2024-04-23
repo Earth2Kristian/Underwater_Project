@@ -1198,7 +1198,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
@@ -1217,11 +1217,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1189876934}
-  idleRange: 15
-  chaseRange: 7
+  idleRange: 20
+  chaseRange: 5
   attackRange: 2
   sharkChangeTime: 0
   sharkChoice: 0
+  distance: 0
   pointOne: {fileID: 1531502168}
   SetOne: 0
   pointTwo: {fileID: 1124350340}
@@ -1249,10 +1250,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.025, y: 0.025, z: 0.05}
-  m_Center: {x: -0, y: 0.0001, z: 0}
+  m_Size: {x: 0.021065438, y: 0.0065979264, z: 0.0059780697}
+  m_Center: {x: -0.0016340485, y: -0.00028563192, z: 0.030485958}
 --- !u!1 &1124350339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1549,9 @@ MonoBehaviour:
   jumpHeight: 5
   jumpLimited: 1
   gravity: -3
+  isDodged: 0
+  dodgeDistance: 4
+  dodgeTimeLimited: 0.2
   playerBody: {fileID: 1189876934}
   groundCheck: {fileID: 343968475}
   groundDistance: 0.2
@@ -1666,6 +1670,70 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d4f399bf-0c33-4371-9961-bf66e17a98f8
     m_ActionName: Player/OnJump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1189876935}
+        m_TargetAssemblyTypeName: PlayerControlsScript, Assembly-CSharp
+        m_MethodName: OnDodgeForward
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3d39b74b-eab8-43b6-ae0f-2cab0958aadd
+    m_ActionName: Player/OnDodgeForward[/Keyboard/w,/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1189876935}
+        m_TargetAssemblyTypeName: PlayerControlsScript, Assembly-CSharp
+        m_MethodName: OnDodgeBackward
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f8d8831b-723b-41f1-a392-8cd307b837dc
+    m_ActionName: Player/OnDodgeBackward[/Keyboard/s,/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1189876935}
+        m_TargetAssemblyTypeName: PlayerControlsScript, Assembly-CSharp
+        m_MethodName: OnDodgeLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 794de660-d5e1-47c9-94a4-ff615c922761
+    m_ActionName: Player/OnDodgeLeft[/Keyboard/a,/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1189876935}
+        m_TargetAssemblyTypeName: PlayerControlsScript, Assembly-CSharp
+        m_MethodName: OnDodgeRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e0ef586c-973f-464a-adef-6fd8ef7046d1
+    m_ActionName: Player/OnDodgeRight[/Keyboard/d,/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1772,7 +1840,7 @@ PrefabInstance:
     - target: {fileID: 5229317699354099374, guid: c1798281c14ffb647b4d0c2d3e8e6d70,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6439282676437684398, guid: c1798281c14ffb647b4d0c2d3e8e6d70,
         type: 3}
