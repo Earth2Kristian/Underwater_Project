@@ -13,8 +13,8 @@ public class FirstPersonScript : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false  ;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()

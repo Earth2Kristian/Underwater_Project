@@ -199,7 +199,7 @@ public class PlayerControlsScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Shark"))
+        if (other.CompareTag("Shark'sMouth"))
         {
             Debug.Log("Shark has caught you");
         }
