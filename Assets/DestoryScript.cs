@@ -14,7 +14,12 @@ public class DestoryScript : MonoBehaviour
         
         if(other.CompareTag("Shark"))
         {
-            Destroy(this.gameObject );
+             Debug.Log("Shark has been hit by a bomb");
+             SharkHealth.Instance.sharkCurrentHealth -= 10;
+             SharkHealth.Instance.sharkHealthText.text = "" + Mathf.RoundToInt(SharkHealth.Instance.sharkCurrentHealth);
+             Destroy(this.gameObject);
+            
+            
         }
     }
 

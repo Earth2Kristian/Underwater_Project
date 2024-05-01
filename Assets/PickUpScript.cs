@@ -5,6 +5,8 @@ using UnityEngine.InputSystem.Interactions;
 
 public class PickUpScript : MonoBehaviour
 {
+    private static PickUpScript instance = null;
+
     public float distance;
     public float throwForce = 600;
     private Vector3 objectPosition;
@@ -12,10 +14,12 @@ public class PickUpScript : MonoBehaviour
     public bool canHold;
     public GameObject holdObject;
     public bool isHolding;
+    public bool beenThrown;
     void Start()
     {
         canHold = true;
         isHolding = false;
+        beenThrown = false;
     }
 
     // Update is called once per frame
@@ -48,8 +52,9 @@ public class PickUpScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 // Pressing the Keyboard E will allow the player to throw the item
-                 GetComponent <Rigidbody>().AddForce(holdObject.transform.forward * throwForce);
+                GetComponent <Rigidbody>().AddForce(holdObject.transform.forward * throwForce);
                 isHolding = false;
+                beenThrown = true;
             }
 
         }
@@ -77,6 +82,19 @@ public class PickUpScript : MonoBehaviour
     {
         // The item will not be held if the player lets go the left mouse button (without pressing the E button)
         isHolding = false;
+    }
+
+    void Awake()
+    {
+        instance = this;
+    }
+
+    public static PickUpScript Instance
+    {
+        get
+        {
+            return instance;
+        }
     }
 
 }

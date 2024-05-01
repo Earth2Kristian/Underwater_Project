@@ -202,6 +202,8 @@ public class PlayerControlsScript : MonoBehaviour
         if (other.CompareTag("Shark'sMouth"))
         {
             Debug.Log("Shark has caught you");
+            GameManager.Instance.gameOver = true;
+            GameManager.Instance.playerLost = true;
         }
     }
 
