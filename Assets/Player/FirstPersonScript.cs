@@ -13,12 +13,23 @@ public class FirstPersonScript : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false  ;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false  ;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
+
+        if (GameManager.Instance.ableToClick == true )
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        if (GameManager.Instance.ableToClick == false)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
         if (Gamepad.current != null)
         {

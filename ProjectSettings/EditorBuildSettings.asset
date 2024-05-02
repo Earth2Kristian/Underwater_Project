@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: c4035894b127fa4448ba44bb5db1fb10
+  - enabled: 1
     path: Assets/Scenes/UnderwaterLevel.unity
     guid: 3d596f39605b98148bd5ab957a0b4be5
   m_configObjects: {}

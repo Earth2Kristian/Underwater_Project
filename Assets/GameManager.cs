@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public float timerCounter;
     public TMP_Text timerText;
 
+    public bool ableToClick;
+
     void Start()
     {
         Time.timeScale = 1f;
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
 
         timerCounter = 0;
         timerText.text = "TIMER: " + Mathf.Round(timerCounter);
+
+        ableToClick = false;
     }
     void Update()
     {
@@ -37,6 +41,7 @@ public class GameManager : MonoBehaviour
 
         if (gameOver == true)
         {
+            ableToClick = true;
             Time.timeScale = 0f;
             Debug.Log("Game Over");
 
