@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         if (oxygenLevelCounter <= 0)
         {
             gameOver = true;
+            playerLost = true;
         }
         if (oxygenLevelCounter > 60)
         {

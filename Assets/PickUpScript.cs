@@ -7,6 +7,7 @@ public class PickUpScript : MonoBehaviour
 {
     private static PickUpScript instance = null;
 
+    // Object Variables
     public float distance;
     public float throwForce = 600;
     private Vector3 objectPosition;
@@ -15,6 +16,10 @@ public class PickUpScript : MonoBehaviour
     public GameObject holdObject;
     public bool isHolding;
     public bool beenThrown;
+
+    // UI Variables
+    public GameObject pickUpUI;
+    public GameObject canThrowUI;
     void Start()
     {
         canHold = true;
@@ -22,7 +27,6 @@ public class PickUpScript : MonoBehaviour
         beenThrown = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Caculating the distance between the pickable item and the hold position of the player
@@ -32,12 +36,12 @@ public class PickUpScript : MonoBehaviour
         if (distance > 5f)
         {
             isHolding = false;
+            pickUpUI.SetActive(false);
         }
-
-        // Item can be pick up if the player is 5 metres close or less
-        if (distance <= 5f)
+        else if (distance <= 5f)  // Item can be pick up if the player is 5 metres close or less
         {
             Debug.Log("Click Left Mouse Button to Pick Up");
+            pickUpUI.SetActive(true);
         }
 
         if (isHolding == true)
@@ -48,6 +52,8 @@ public class PickUpScript : MonoBehaviour
             transform.SetParent(holdObject.transform); // The item will become a parent object of the hold position
 
             Debug.Log("Press E to Throw");
+            canThrowUI.SetActive(true);
+            pickUpUI.SetActive(false);
 
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -65,6 +71,8 @@ public class PickUpScript : MonoBehaviour
             transform.SetParent(null);
             GetComponent<Rigidbody>().useGravity = true;
             transform.position = objectPosition;
+            canThrowUI.SetActive(false);
+
         }
     }
 
