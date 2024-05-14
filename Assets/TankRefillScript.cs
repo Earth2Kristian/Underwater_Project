@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TankRefillScript : MonoBehaviour
 {
+    public AudioSource breatheSoundEffect;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -11,6 +12,7 @@ public class TankRefillScript : MonoBehaviour
             Destroy(this.gameObject);
             GameManager.Instance.oxygenLevelCounter += 10;
             GameManager.Instance.oxygenLevelText.text = "OXYGEN: " + Mathf.Round(GameManager.Instance.oxygenLevelCounter);  
+            breatheSoundEffect.Play();
         }
     }
 }

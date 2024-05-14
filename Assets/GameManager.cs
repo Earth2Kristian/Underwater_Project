@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     // Able to Click Variables
     public bool ableToClick;
 
+    // Sound Effect and Music Background Variables
+    public AudioSource musicBackground;
+    public AudioSource jumpScareSoundEffect;
+
     void Start()
     {
         // The gameplay will play once the player has enter the level
@@ -74,12 +78,16 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
             Debug.Log("Game Over");
 
+            musicBackground.Stop();
+
             // Condition whenever if the player has win or not
             if (playerLost == true)
             {
                 // UI will be showing that the player has lost
                 Debug.Log("Player has lost");
                 lostUI.SetActive (true);
+
+                jumpScareSoundEffect.Play();
             }
             if (playerWin == true)
             {
