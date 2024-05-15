@@ -1458,10 +1458,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: A_BLAC~1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4cc48babab8a118449604956ccf49715,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4cc48babab8a118449604956ccf49715,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4cc48babab8a118449604956ccf49715,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 595451166}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4cc48babab8a118449604956ccf49715,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 595451167}
   m_SourcePrefab: {fileID: 100100000, guid: 4cc48babab8a118449604956ccf49715, type: 3}
 --- !u!4 &306822435 stripped
 Transform:
@@ -2699,6 +2717,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0076995324, y: 0.0058393055, z: 0.0061173267}
   m_Center: {x: 0.0008830632, y: 0.000014757503, z: 0.0030348848}
+--- !u!1 &595451163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4cc48babab8a118449604956ccf49715,
+    type: 3}
+  m_PrefabInstance: {fileID: 306822434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &595451166
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595451163}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.009584504, y: 0.008131173, z: 0.004563669}
+  m_Center: {x: 0.00018524767, y: -0.0003474514, z: -0.0037181687}
+--- !u!114 &595451167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595451163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5c6b3a92097214dbec3dbb95f296c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breatheSoundEffect: {fileID: 386897006}
 --- !u!1 &636030506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3481,7 +3539,7 @@ Transform:
   m_GameObject: {fileID: 859215958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.558407, y: 10.697548, z: 15.783951}
+  m_LocalPosition: {x: 16.558407, y: 1.69755, z: 15.783951}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3720,13 +3778,14 @@ GameObject:
   - component: {fileID: 988581547}
   - component: {fileID: 988581546}
   - component: {fileID: 988581545}
+  - component: {fileID: 988581548}
   - component: {fileID: 988581544}
   m_Layer: 0
   m_Name: OxygenTanks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &988581543
 Transform:
@@ -3776,8 +3835,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.7409282, y: 1.4577556, z: 1.7209716}
+  m_Center: {x: 0.051292658, y: -0.22887778, z: -0.002510786}
 --- !u!23 &988581546
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3828,6 +3887,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988581542}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &988581548
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988581542}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &990024229
 GameObject:
   m_ObjectHideFlags: 0
@@ -5892,6 +5978,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: A_blue_cartoony_bomb_0508181254_preview
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 788473cdc36508f42b2f724e41266fee,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 788473cdc36508f42b2f724e41266fee,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5928,7 +6024,7 @@ Transform:
   m_GameObject: {fileID: 1376238734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -7.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8348,6 +8444,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912338157373565226, guid: f8d1e16727c5ad34f9ff8629d9f1507f,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912338157373565226, guid: f8d1e16727c5ad34f9ff8629d9f1507f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7248840068297634269, guid: f8d1e16727c5ad34f9ff8629d9f1507f,
         type: 3}
