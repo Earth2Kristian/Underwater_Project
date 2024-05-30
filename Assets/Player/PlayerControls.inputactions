@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OnPaused",
+                    "type": "Button",
+                    "id": "846ea550-ef33-44d7-8c19-597a4f78537b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -258,6 +267,17 @@
                     "action": "OnDodgeRight",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b461fe98-9259-4340-b856-b605f59f9287",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnPaused",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

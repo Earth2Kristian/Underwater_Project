@@ -7,10 +7,14 @@ public class MenuScript : MonoBehaviour
 {
     public void PlayButton()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
 
     }
 
+    public void AboutButton()
+    {
+        SceneManager.LoadScene(2);
+    }
     public void ControlButton()
     {
         SceneManager.LoadScene(1);

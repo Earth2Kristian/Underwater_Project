@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
 
+    // Paused Variables
+    public bool gamePaused;
+    public GameObject pausedUI;
+
     // Win Condition Variables
     public bool gameOver;
     public bool playerLost;
@@ -34,10 +38,12 @@ public class GameManager : MonoBehaviour
     {
         // The gameplay will play once the player has enter the level
         Time.timeScale = 1f;
+        gamePaused = false;
         gameOver = false;
         playerLost = false;
         playerWin = false;
 
+        pausedUI.SetActive(false);
         lostUI.SetActive(false) ;
         winUI.SetActive(false);
 
@@ -71,6 +77,19 @@ public class GameManager : MonoBehaviour
         if (oxygenLevelCounter > 60)
         {
             oxygenLevelCounter = 60;
+        }
+
+        if (gamePaused == true)
+        {
+            Time.timeScale = 0f;
+            pausedUI.SetActive(true);
+            ableToClick = true;
+        }
+        if (gamePaused == false)
+        {
+            Time.timeScale = 1f;
+            pausedUI.SetActive(false);
+            ableToClick = false;
         }
 
         if (gameOver == true)

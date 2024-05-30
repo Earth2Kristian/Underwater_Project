@@ -39,6 +39,8 @@ public class PlayerControlsScript : MonoBehaviour
     public LayerMask groundMask;
     public bool isGrounded;
 
+    private bool paused = false;
+
     private void OnEnable()
     {
         playerControls.Enable();
@@ -158,6 +160,18 @@ public class PlayerControlsScript : MonoBehaviour
             
 
             StartCoroutine(Dodge());
+        }
+    }
+
+    public void OnPaused(InputAction.CallbackContext context)
+    {
+        paused = context.action.triggered;
+        paused = context.performed;
+
+        if (context.performed)
+        {
+            GameManager.Instance.gamePaused = true;
+
         }
     }
 

@@ -32,7 +32,7 @@ public class RespawningItemsScript : MonoBehaviour
             // A bomb will spawn in the area once its spawn time has reach down to 0
             Vector3 randomSpawnPosition = new Vector3(Random.Range(-45f, 21f), 6f, Random.Range(-38f, 28f));
             Instantiate(bombObject, randomSpawnPosition, Quaternion.identity);
-            bombObject.transform.rotation = Quaternion.Euler(-180f, 90f, 0f);
+            bombObject.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
             bombSpawnTime = Random.Range(5,10);    // Spawn Time will reset
         }
         if (oxygenTankSpawnTime <= 0 )

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ControlsScene.unity
     guid: 5f898e838054f44489cdd54e685b746d
   - enabled: 1
+    path: Assets/Scenes/AboutScene.unity
+    guid: 766fca99c92e664409b4a55ae5b08e82
+  - enabled: 1
     path: Assets/Scenes/UnderwaterLevel.unity
     guid: 3d596f39605b98148bd5ab957a0b4be5
   m_configObjects: {}
