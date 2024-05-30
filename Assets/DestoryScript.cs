@@ -5,6 +5,8 @@ using UnityEngine;
 public class DestoryScript : MonoBehaviour
 {
     public AudioSource bombExplosionSoundEffect;
+    public GameObject bombExplosionParticlesEffects;
+    public Transform bombExplosionPostion;
     void Update()
     {
         Destroy(this.gameObject, 30);
@@ -15,11 +17,12 @@ public class DestoryScript : MonoBehaviour
         
         if(other.CompareTag("Shark"))
         {
-             Debug.Log("Shark has been hit by a bomb");
-             SharkHealth.Instance.sharkCurrentHealth -= 10;
-             SharkHealth.Instance.sharkHealthText.text = "" + Mathf.RoundToInt(SharkHealth.Instance.sharkCurrentHealth);
+            Debug.Log("Shark has been hit by a bomb");
+            SharkHealth.Instance.sharkCurrentHealth -= 10;
+            SharkHealth.Instance.sharkHealthText.text = "" + Mathf.RoundToInt(SharkHealth.Instance.sharkCurrentHealth);
             bombExplosionSoundEffect.Play();
-             Destroy(this.gameObject);
+            Instantiate(bombExplosionParticlesEffects, bombExplosionPostion.position, Quaternion.identity);
+            Destroy(this.gameObject);
             
             
         }

@@ -18,6 +18,9 @@ public class SharkAIScript : MonoBehaviour
     public float sharkChangeTime;
     public float sharkChoice;
 
+    public AudioSource sharkChaseSoundEffect;
+    public bool sharkChaseSoundEffectPlayed;
+
     //public GameObject attackCollider;
 
     public float distance;
@@ -50,6 +53,8 @@ public class SharkAIScript : MonoBehaviour
 
         sharkChangeTime = Random.Range(10, 15);
         sharkChoice = Random.Range(1, 6);
+
+        sharkChaseSoundEffectPlayed = false;
     }
 
     void Update()
@@ -138,6 +143,8 @@ public class SharkAIScript : MonoBehaviour
                 sharkChangeTime = Random.Range(10, 15);
             }
 
+
+            sharkChaseSoundEffectPlayed = false;
             //attackCollider.SetActive(false);
         }
         if (distance <= idleRange && distance > chaseRange)
@@ -146,6 +153,12 @@ public class SharkAIScript : MonoBehaviour
             currentState = "ChaseState";
             meshAgent.SetDestination(target.position);
             meshAgent.speed = 5f;
+
+            if (sharkChaseSoundEffectPlayed == false)
+            {
+                sharkChaseSoundEffect.Play();
+                sharkChaseSoundEffectPlayed = true;
+            }
             //attackCollider.SetActive(false);
 
         }

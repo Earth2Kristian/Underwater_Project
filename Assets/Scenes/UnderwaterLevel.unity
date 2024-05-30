@@ -3713,6 +3713,8 @@ MonoBehaviour:
   attackRange: 2
   sharkChangeTime: 0
   sharkChoice: 0
+  sharkChaseSoundEffect: {fileID: 1055283392}
+  sharkChaseSoundEffectPlayed: 0
   distance: 0
   pointOne: {fileID: 1531502168}
   SetOne: 0
@@ -3955,6 +3957,7 @@ MonoBehaviour:
   ableToClick: 0
   musicBackground: {fileID: 1438239466}
   jumpScareSoundEffect: {fileID: 1055283392}
+  jumpScareSoundEffectPlayed: 0
 --- !u!4 &990024231
 Transform:
   m_ObjectHideFlags: 0
@@ -8432,9 +8435,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3639473599681904882, guid: f8d1e16727c5ad34f9ff8629d9f1507f,
         type: 3}
+      propertyPath: bombExplosionPostion
+      value: 
+      objectReference: {fileID: 1174279193}
+    - target: {fileID: 3639473599681904882, guid: f8d1e16727c5ad34f9ff8629d9f1507f,
+        type: 3}
       propertyPath: bombExplosionSoundEffect
       value: 
       objectReference: {fileID: 53754981}
+    - target: {fileID: 3639473599681904882, guid: f8d1e16727c5ad34f9ff8629d9f1507f,
+        type: 3}
+      propertyPath: bombExplosionParticlesEffects
+      value: 
+      objectReference: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5,
+        type: 3}
     - target: {fileID: 4912338157373565226, guid: f8d1e16727c5ad34f9ff8629d9f1507f,
         type: 3}
       propertyPath: m_Name

@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     // Sound Effect and Music Background Variables
     public AudioSource musicBackground;
     public AudioSource jumpScareSoundEffect;
+    public bool jumpScareSoundEffectPlayed;
 
     void Start()
     {
@@ -48,8 +49,9 @@ public class GameManager : MonoBehaviour
         oxygenLevelCounter = 60;
         oxygenLevelText.text = "OXYGEN: " + Mathf.Round(oxygenLevelCounter);
 
-    
         ableToClick = false;
+
+        jumpScareSoundEffectPlayed = false;
     }
     void Update()
     {
@@ -87,7 +89,11 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Player has lost");
                 lostUI.SetActive (true);
 
-                jumpScareSoundEffect.Play();
+                if (jumpScareSoundEffectPlayed == false)
+                {
+                    jumpScareSoundEffect.Play();
+                    jumpScareSoundEffectPlayed = true;
+                }
             }
             if (playerWin == true)
             {
