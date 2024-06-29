@@ -5,9 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+    public Animator transitionScene;
+
+    void Start()
+    {
+        transitionScene.SetTrigger("startScene");   
+    }
+
     public void PlayButton()
     {
-        SceneManager.LoadScene(3);
+        transitionScene.SetTrigger("endScene");
+        StartCoroutine(TransitionPlay());
+        //SceneManager.LoadScene(3);
 
     }
 
@@ -22,5 +31,11 @@ public class MenuScript : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+
+    private IEnumerator TransitionPlay() 
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(3);
     }
 }

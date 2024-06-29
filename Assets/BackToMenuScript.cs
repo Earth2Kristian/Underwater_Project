@@ -8,6 +8,7 @@ public class BackToMenuScript : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+        GameManager.Instance.gameOver = false;
         Time.timeScale = 1f;
     }
 }
