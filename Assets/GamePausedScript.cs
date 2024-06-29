@@ -12,5 +12,6 @@ public class GamePausedScript : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 }
