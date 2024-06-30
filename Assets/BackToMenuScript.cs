@@ -9,6 +9,8 @@ public class BackToMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         GameManager.Instance.gameOver = false;
+        GameManager.Instance.playerWin = false;
+        GameManager.Instance.playerLost = false;
         Time.timeScale = 1f;
     }
 }

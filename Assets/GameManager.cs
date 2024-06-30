@@ -23,8 +23,10 @@ public class GameManager : MonoBehaviour
     public TMP_Text timerText;
 
     // Oxygen Level Variable
-    public float oxygenLevelCounter;
+    public float oxygenLevelCurrent;
+    public float oxygenLevelMax = 100;
     public TMP_Text oxygenLevelText;
+    public OxygenLevelBarScript oxygenBar;
 
     // Able to Click Variables
     public bool ableToClick;
@@ -52,8 +54,9 @@ public class GameManager : MonoBehaviour
         timerText.text = "TIMER: " + Mathf.Round(timerCounter);
 
         // Oxygen Level Counter set as 30
-        oxygenLevelCounter = 60;
-        oxygenLevelText.text = "OXYGEN: " + Mathf.Round(oxygenLevelCounter);
+        oxygenLevelCurrent = oxygenLevelMax;
+        oxygenLevelText.text = "" + Mathf.Round(oxygenLevelCurrent);
+        oxygenBar.UpdateOxygenBar(oxygenLevelCurrent, oxygenLevelMax);
 
         ableToClick = false;
 
@@ -66,17 +69,18 @@ public class GameManager : MonoBehaviour
         timerText.text = "TIMER: " + Mathf.Round(timerCounter);
 
         // Oxygen Level counter will decrease by time during the gameplay
-        oxygenLevelCounter -= Time.deltaTime;
-        oxygenLevelText.text = "OXYGEN: " + Mathf.Round(oxygenLevelCounter);
+        oxygenLevelCurrent -= Time.deltaTime;
+        oxygenLevelText.text = "" + Mathf.Round(oxygenLevelCurrent);
+        oxygenBar.UpdateOxygenBar(oxygenLevelCurrent, oxygenLevelMax);
 
-        if (oxygenLevelCounter <= 0)
+        if (oxygenLevelCurrent <= 0)
         {
             gameOver = true;
             playerLost = true;
         }
-        if (oxygenLevelCounter > 60)
+        if (oxygenLevelCurrent > oxygenLevelMax)
         {
-            oxygenLevelCounter = 60;
+            oxygenLevelCurrent = oxygenLevelMax;
         }
 
         if (gamePaused == true)

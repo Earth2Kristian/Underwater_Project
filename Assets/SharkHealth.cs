@@ -10,11 +10,13 @@ public class SharkHealth : MonoBehaviour
     public float sharkMaxHealth = 100;
     public float sharkCurrentHealth;
     public TMP_Text sharkHealthText;
+    public SharkHPBarScript sharkHPBar;
     void Start()
     {
         sharkCurrentHealth = sharkMaxHealth;
 
         sharkHealthText.text = "" + Mathf.RoundToInt(sharkCurrentHealth);
+        sharkHPBar.UpdateSharkHPBar(sharkCurrentHealth, sharkMaxHealth);
     }
 
     
@@ -26,7 +28,7 @@ public class SharkHealth : MonoBehaviour
             GameManager.Instance.gameOver = true;
             GameManager.Instance.playerWin = true;
             sharkHealthText.text = "" + Mathf.RoundToInt(sharkCurrentHealth);
-            return;
+            sharkHPBar.UpdateSharkHPBar(sharkCurrentHealth, sharkMaxHealth);
          }
          
     }

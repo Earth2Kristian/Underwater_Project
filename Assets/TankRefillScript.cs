@@ -10,8 +10,9 @@ public class TankRefillScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);
-            GameManager.Instance.oxygenLevelCounter += 10;
-            GameManager.Instance.oxygenLevelText.text = "OXYGEN: " + Mathf.Round(GameManager.Instance.oxygenLevelCounter);  
+            GameManager.Instance.oxygenLevelCurrent += 10;
+            GameManager.Instance.oxygenLevelText.text = "" + Mathf.Round(GameManager.Instance.oxygenLevelCurrent);  
+            GameManager.Instance.oxygenBar.UpdateOxygenBar(GameManager.Instance.oxygenLevelCurrent, GameManager.Instance.oxygenLevelMax);
             breatheSoundEffect.Play();
         }
     }
