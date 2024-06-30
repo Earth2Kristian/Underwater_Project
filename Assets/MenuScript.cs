@@ -9,6 +9,7 @@ public class MenuScript : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1.0f;
         transitionScene.SetTrigger("startScene");   
     }
 
