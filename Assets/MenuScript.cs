@@ -7,6 +7,9 @@ public class MenuScript : MonoBehaviour
 {
     public Animator transitionScene;
 
+    public AudioSource playButtonSoundEffect;
+    
+
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -15,6 +18,7 @@ public class MenuScript : MonoBehaviour
 
     public void PlayButton()
     {
+        playButtonSoundEffect.Play();
         transitionScene.SetTrigger("endScene");
         StartCoroutine(TransitionPlay());
         //SceneManager.LoadScene(3);
@@ -29,6 +33,12 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void CreditButton()
+    {
+        SceneManager.LoadScene(4);
+    }
+
     public void QuitButton()
     {
         Application.Quit();

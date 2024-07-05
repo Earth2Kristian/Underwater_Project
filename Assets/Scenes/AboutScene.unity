@@ -1217,13 +1217,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Devil Shark is a First-Person Survival game where you as a player are
+  m_text: 'Devil Shark is a First-Person Survival game where you as a player are
     diving underwater as the ocean has been polluted recently. Towards the seafloor,
     you have encountered a mythical shark known as the Devil Shark. People have been
-    spreading rumours about Devil Shark for years, many people thought it was real
-    and others thought it was fake.\n\nYour goal is to take down the Devil Shark
+    spreading rumours about Devil Shark for years. Many people thought it was real
+    and others thought it was fake.
+
+
+    Your goal is to take down the Devil Shark
     and save the ocean. There will be bombs spawning around which can help to take
-    down the shark however remember you don\u2019t have long left underwater."
+    down the shark. but remember you can''t breathe in underwater for long, oxygen
+    tanks will help you.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 08bbe52d6174c7c4f94b4cb0dd96befe, type: 2}
   m_sharedMaterial: {fileID: 6385121076251797463, guid: 08bbe52d6174c7c4f94b4cb0dd96befe,

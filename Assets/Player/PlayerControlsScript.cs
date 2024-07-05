@@ -30,6 +30,7 @@ public class PlayerControlsScript : MonoBehaviour
     public bool isDodged = false;
     public float dodgeDistance = 12f;
     public float dodgeTimeLimited = 0.2f;
+    public AudioSource swimSoundEffect;
 
     public Transform playerBody;
 
@@ -90,6 +91,7 @@ public class PlayerControlsScript : MonoBehaviour
                 isDodged = true;
                 Vector3 dodgeDirection = transform.forward;
                 velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
+            swimSoundEffect.Play();
                 //GameManager.Instance.dashCurrent -= 1;
                 //GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
                 //dashSoundEffect.Play();
@@ -112,6 +114,7 @@ public class PlayerControlsScript : MonoBehaviour
                 isDodged = true;
                 Vector3 dodgeDirection = -transform.right;
                 velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
+            swimSoundEffect.Play();
                 //GameManager.Instance.dashCurrent -= 1;
                // GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
                 //dashSoundEffect.Play();
@@ -133,6 +136,7 @@ public class PlayerControlsScript : MonoBehaviour
                 isDodged = true;
                 Vector3 dodgeDirection = transform.right;
                 velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
+            swimSoundEffect.Play();
                 //GameManager.Instance.dashCurrent -= 1;
                 //GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
                // dashSoundEffect.Play();
@@ -154,6 +158,7 @@ public class PlayerControlsScript : MonoBehaviour
                 isDodged = true;
                 Vector3 dodgeDirection = -transform.forward;
                 velocity = dodgeDirection * (dodgeDistance / dodgeTimeLimited);
+            swimSoundEffect.Play();
                 //GameManager.Instance.dashCurrent -= 1;
                 //GameManager.Instance.dashBar.UpdateDashBar(GameManager.Instance.dashCurrent, GameManager.Instance.dashLimited);
                 //dashSoundEffect.Play();
